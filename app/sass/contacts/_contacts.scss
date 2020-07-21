@@ -1,0 +1,223 @@
+.map-section-content {
+    padding-top: 65px;
+    display: none;
+    &.active {
+        display: block;
+    }
+}
+.map-wrp {
+    padding-bottom: 177px;
+}
+.countries-wrp {
+    padding-bottom: 127px;
+}
+.map-subtitle {
+    font-size: 22px;
+    line-height: 36px;
+    color: #2F2F2F;
+    margin-top: 31px;
+    margin-bottom: 41px;
+    font-family: 'TTCommons-Bold';
+}
+.search-flex {
+    display: flex;
+    .subscribe-btn {
+        margin-left: 19px;
+    }
+    .input-style {
+        margin-right: 19px;
+    }
+}
+.btn-switch {
+    display: flex;
+    border-radius: 100px;
+    width: 277px;
+    height: 50px;
+    align-items: center;
+    overflow: hidden;
+    border: 1px solid #2F2F2F;
+    margin: 0 auto;
+    p {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 50%;
+        height: 100%;
+        background-color: #fff;
+        color: #2F2F2F;
+        cursor: pointer;
+        font-family: 'TTCommons-DemiBold';
+        span {
+            display: inline-block;
+            margin: 0 7px;
+        }
+        &.active {
+            background-color: #2F2F2F;
+            color: #fff;
+        }
+    }
+}
+.input-search {
+    width: 172px;
+    font-size: 14px;
+    line-height: 25px;
+    color: #2F2F2F;
+    border-bottom: 1px solid #E2E2E2;
+    &::placeholder {
+        color: #5B5B5B;
+    }
+}
+// map
+.map-wrp {
+    position: relative;
+    z-index: 4;
+    margin-top: 26px;
+    .row {
+        margin-left: 0;
+    }
+}
+.address-wrp {
+    height: 608px;
+    overflow: auto;
+    border: 1px solid rgba(0, 0, 0, 0.07);
+}
+.map-text-block {
+    background-color: #fff;
+    padding: 30px 55px 21px;
+    color: #5B5B5B;
+    cursor: pointer;
+    p:first-child {
+        line-height: 30px;
+        color: #2F2F2F;
+        margin-bottom: 4px;
+        font-family: 'TTCommons-Bold';
+    }
+    & + .map-text-block {
+        border-top: 1px solid rgba(0, 0, 0, 0.07);
+    }
+    &:hover, &.active {
+        background-color: darken(#fff, 2%);
+    }
+}
+#map {
+    width: calc(100% + 17px);
+    height: 100%;
+    margin-left: -17px;
+}
+
+// 2 part
+.countries-wrp {
+    margin-top: 35px;
+    .row-materik {
+        .row {
+            margin: 0;
+        }
+        .col-12 {
+            padding-left: 56px;
+            padding-right: 18px;
+            margin-bottom: 35px;
+        }
+        & + .row-materik {
+            margin-top: 95px;
+        }
+    }
+}
+.subtitle-materik {
+    font-size: 22px;
+    line-height: 36px;
+    color: #2F2F2F;
+    margin-bottom: 30px;
+    font-family: 'TTCommons-Bold';
+}
+.title-country {
+    display: flex;
+    align-items: flex-end;
+    margin-bottom: 15px;
+    img {
+        width: 35px;
+        margin-right: 20px;
+    }
+    span {
+        font-size: 22px;
+        line-height: 30px;
+        color: #2F2F2F;
+        font-family: 'TTCommons-Bold';
+    }
+}
+.countries-list {
+    li {
+        line-height: 30px;
+        a {
+            color: #5B5B5B;
+            &:hover {
+                color: #2F2F2F;
+            }
+        }
+    }
+}
+
+
+@media (max-width: 991px) {
+    .map-text-block {
+        padding: 21px 36px 21px 55px;
+    }
+}
+@media (max-width: 767px) {
+    .map-wrp {
+        padding-bottom: 118px;
+    }
+    .countries-wrp {
+        padding-bottom: 59px;
+    }
+    .map-section-content {
+        padding-top: 53px;
+    }
+    .btn-switch {
+        margin: 39px auto 0;
+    }
+    .map-subtitle {
+        margin-top: 12px;
+        margin-bottom: 30px;
+    }
+    .map-wrp {
+        margin-top: 40px;
+        .row {
+            flex-direction: column-reverse;
+            margin-right: 0;
+            .col-12.pl-0 {
+                padding-right: 0;
+            }
+        }
+    }
+    .address-wrp {
+        margin-top: 38px;
+        height: 568px;
+    }
+    #map {
+        height: 608px;
+        width: 100%;
+        margin-left: 0;
+    }
+    // 2 part
+    .countries-wrp {
+        margin-top: 13px;
+        .row-materik {
+            .row {
+                margin-left: -15px;
+                margin-right: -15px;
+                .col-12 {
+                    padding-left: 15px;
+                    padding-right: 15px;
+                    margin-bottom: 46px;
+                }
+            }
+            & + .row-materik {
+                margin-top: 37px;
+            }
+        }
+    }
+    .countries-list {
+        padding-bottom: 27px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+    }
+}

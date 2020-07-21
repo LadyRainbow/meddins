@@ -26,9 +26,11 @@ $(document).ready(function () {
         $('body').toggleClass('active');
     });
 
+    // animation
+    new WOW().init();
+
 
     // MAIN SLIDER
-
     var $statusCurrent = $('.current-number');
     var $statusGeneral = $('.general-number');
     var $slickElement = $('.main-slider');
@@ -141,45 +143,18 @@ $(document).ready(function () {
     }
     // parallax end
 
+    // map switch
+    $('.btn-switch p').click(function () {
+        var id = $(this).attr('data-line');
+        $('.map-section-content').removeClass('active');
+        $('.btn-switch p').removeClass('active');
+        $(this).addClass('active');
+        $('#' + id + '.map-section-content').addClass('active');
+        // $('.map-section-content h2').toggleClass("animated fadeInUp");
+        // $('.row-materik .col-12').toggleClass("animated fadeInUp");
+        // $('.subtitle-materik').toggleClass("animated fadeInUp");
+    })
 
-
-   // magazine cut string
-    function cutText () {
-        $(".main-slide2-text").text(function(i, text) {
-         if (text.length >= 55) {
-           text = text.substring(0, 55);
-           var lastIndex = text.lastIndexOf(" ");       // позиция последнего пробела
-           text = text.substring(0, lastIndex) + '...'; // обрезаем до последнего слова
-         }
-         $(this).text(text);
-       });
-   };
-   cutText ();
-
-   // slider 2 main block
-   $('.match-slider').slick({
-        slidesToShow: 3,
-        slidesToScroll: 1,
-        dots: false,
-        prevArrow: $('.prev-match-arrow'),
-        nextArrow: $('.next-match-arrow'),
-        responsive: [
-                       {
-                           breakpoint: 1200,
-                           settings: {
-                               slidesToShow: 2,
-                               slidesToScroll: 1
-                           }
-                       },
-                       {
-                           breakpoint: 992,
-                           settings: {
-                               slidesToShow: 1,
-                               slidesToScroll: 1
-                           }
-                       },
-        ]
-   });
 
     // soft scroll
     $(".scrollTo").on("click", function (event) {
@@ -192,13 +167,6 @@ $(document).ready(function () {
         // находим высоту, на которой расположен блок
     });
 
-    $(".scrollToMinusHeader").on("click", function (event) {
-        // исключаем стандартную реакцию браузера
-        event.preventDefault();
-        var id  = $(this).attr('href');
-        var top = $(id).offset().top - 70;
-        $('body,html').animate({scrollTop: top}, 500);
-    });
 
     function headerChange () {
         if($window.scrollTop() > 50) {

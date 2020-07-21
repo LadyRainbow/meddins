@@ -724,8 +724,199 @@
               };
         };
     </script>
+    <!-- Google Map -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD4R9PQyMDROizmuglGKqxCnsFl62st7pM"></script>
+
     <script>
-        new WOW().init();
+        // Initialize Google map page Contact
+        var mapTextBlock = $('.map-text-block');
+        mapTextBlock.click(function () {
+            mapTextBlock.removeClass('active');
+            $(this).addClass('active');
+        });
+
+        function initMap() {
+
+            // адреса
+            var locations = {
+                'auezov': [49.950302, 82.614196],
+                    'internaz': [50.411228, 80.257044],
+                    'otradnoe': [59.795277, 30.820440],
+                'shlisselburg': [59.9329724, 31.0142071],
+                    'kirovsk': [59.872917, 30.986267],
+                    'otradnoe': [59.795499, 30.824549],
+                    'prime': [49.946588, 82.648314],
+            };
+
+            var map;
+            var mapContainer = $('#map')[0];
+            var mapCenter = {
+                lat: locations["internaz"][0],
+                lng: locations["internaz"][1]
+            };
+            map = new google.maps.Map(mapContainer, {
+                center: mapCenter,
+                zoom: 15,
+                // disableDefaultUI: true,
+                styles: [{
+                        "elementType": "geometry",
+                        "stylers": [{
+                            "color": "#f5f5f5"
+                        }]
+                    },
+                    {
+                        "elementType": "labels.icon",
+                        "stylers": [{
+                            "visibility": "off"
+                        }]
+                    },
+                    {
+                        "elementType": "labels.text.fill",
+                        "stylers": [{
+                            "color": "#616161"
+                        }]
+                    },
+                    {
+                        "elementType": "labels.text.stroke",
+                        "stylers": [{
+                            "color": "#f5f5f5"
+                        }]
+                    },
+                    {
+                        "featureType": "administrative.land_parcel",
+                        "elementType": "labels.text.fill",
+                        "stylers": [{
+                            "color": "#bdbdbd"
+                        }]
+                    },
+                    {
+                        "featureType": "poi",
+                        "elementType": "geometry",
+                        "stylers": [{
+                            "color": "#eeeeee"
+                        }]
+                    },
+                    {
+                        "featureType": "poi",
+                        "elementType": "labels.text.fill",
+                        "stylers": [{
+                            "color": "#757575"
+                        }]
+                    },
+                    {
+                        "featureType": "poi.park",
+                        "elementType": "geometry",
+                        "stylers": [{
+                            "color": "#e5e5e5"
+                        }]
+                    },
+                    {
+                        "featureType": "poi.park",
+                        "elementType": "labels.text.fill",
+                        "stylers": [{
+                            "color": "#9e9e9e"
+                        }]
+                    },
+                    {
+                        "featureType": "road",
+                        "elementType": "geometry",
+                        "stylers": [{
+                            "color": "#ffffff"
+                        }]
+                    },
+                    {
+                        "featureType": "road.arterial",
+                        "elementType": "labels.text.fill",
+                        "stylers": [{
+                            "color": "#757575"
+                        }]
+                    },
+                    {
+                        "featureType": "road.highway",
+                        "elementType": "geometry",
+                        "stylers": [{
+                            "color": "#dadada"
+                        }]
+                    },
+                    {
+                        "featureType": "road.highway",
+                        "elementType": "labels.text.fill",
+                        "stylers": [{
+                            "color": "#616161"
+                        }]
+                    },
+                    {
+                        "featureType": "road.local",
+                        "elementType": "labels.text.fill",
+                        "stylers": [{
+                            "color": "#9e9e9e"
+                        }]
+                    },
+                    {
+                        "featureType": "transit.line",
+                        "elementType": "geometry",
+                        "stylers": [{
+                            "color": "#e5e5e5"
+                        }]
+                    },
+                    {
+                        "featureType": "transit.station",
+                        "elementType": "geometry",
+                        "stylers": [{
+                            "color": "#eeeeee"
+                        }]
+                    },
+                    {
+                        "featureType": "water",
+                        "elementType": "geometry",
+                        "stylers": [{
+                            "color": "#c9c9c9"
+                        }]
+                    },
+                    {
+                        "featureType": "water",
+                        "elementType": "labels.text.fill",
+                        "stylers": [{
+                            "color": "#9e9e9e"
+                        }]
+                    }
+                ]
+            });
+
+            var image = '../../build/img/map.svg';
+            var marker = new google.maps.Marker({
+                position: mapCenter,
+                map: map,
+                icon: image
+            });
+
+            // навешиваем обработчики
+            for (var i = 0, n = mapTextBlock.length; i < n; i++) {
+                mapTextBlock[i].onclick = clickGoto;
+            };
+
+            // куда скакать
+            function clickGoto() {
+                // город
+                var pos = $(this).attr("id");
+
+                var newLat = locations[pos][0];
+                var newLng = locations[pos][1];
+
+                map.setCenter({
+                    lat: newLat,
+                    lng: newLng
+                });
+
+                marker.setPosition({
+                    lat: newLat,
+                    lng: newLng
+                });
+                return false;
+           };
+        };
+
+        initMap();
     </script>
 </body>
 </html>

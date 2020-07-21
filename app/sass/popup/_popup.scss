@@ -55,7 +55,6 @@
 }
 
 .pop-up-input {
-    @extend %input;
     color: #000;
     background: #fff;
     &::placeholder {
