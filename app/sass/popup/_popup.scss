@@ -1,0 +1,112 @@
+.pop-up-overlay-wrapper {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    z-index: 5;
+    .overlay-pop-up {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 45, 102, 0.7);
+        z-index: 6;
+    }
+    &.active {
+        display: flex;
+    }
+}
+.pop-up-general-block {
+    display: none;
+    max-height: 100%;
+    overflow-y: auto;
+    position: relative;
+    z-index: 7;
+    padding: 56px 60px;
+    width: 536px;
+    background: #023A80;
+    box-shadow: 0px 8px 37px rgba(0, 0, 0, 0.14);
+    &.active {
+        display: block;
+    }
+    .btn-checkbox-wrp {
+        margin-top: 9px;
+    }
+}
+.pop-title {
+    font-family: 'proximanovacond-bold', sans-serif;
+    text-align: center;
+    font-size: 32px;
+    line-height: 34px;
+    text-align: center;
+    color: #FFFFFF;
+    margin-bottom: 32px;
+    & + p {
+        text-align: center;
+        color: #EAF0F8;
+        margin-bottom: 56px;
+    }
+}
+
+.pop-up-input {
+    @extend %input;
+    color: #000;
+    background: #fff;
+    &::placeholder {
+        color: #7B7B7B;
+    }
+}
+.pop-up-btn {
+    width: 160px;
+    height: 43px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #5782AF;
+    border-radius: 126px;
+    letter-spacing: 0.02em;
+    font-family: 'proximanovacond-bold', sans-serif;
+    cursor: pointer;
+    transition: .2s;
+    color: #fff;
+    margin: 47px auto 0;
+    &:hover {
+        background-color: darken(#5782AF, 5%);
+    }
+}
+.pop-up-general-block-close-btn {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    width: 13px;
+    height: 13px;
+    background: url('../img/close.png') center no-repeat;
+    background-size: contain;
+    cursor: pointer;
+}
+
+@media (max-width: 767px) {
+    .pop-up-general-block {
+        width: 90%;
+        padding: 43px 15px 45px;
+    }
+    .pop-title {
+        margin-bottom: 12px;
+        & + p {
+            margin-bottom: 30px;
+        }
+    }
+    .pop-up-btn {
+        margin: 22px auto 0;
+    }
+}
+
+@media (max-width: 570px) {
+
+}
