@@ -26,8 +26,6 @@ $(document).ready(function () {
         $('body').toggleClass('active');
     });
 
-    // animation
-    new WOW().init();
 
 
     // MAIN SLIDER
@@ -51,7 +49,7 @@ $(document).ready(function () {
     });
 
     $slickElement.slick({
-        // autoplay: true,
+        autoplay: true,
         slidesToShow: 1,
         slidesToScroll: 1,
         prevArrow: $('.prev-main-arrow'),
@@ -150,10 +148,31 @@ $(document).ready(function () {
         $('.btn-switch p').removeClass('active');
         $(this).addClass('active');
         $('#' + id + '.map-section-content').addClass('active');
-        // $('.map-section-content h2').toggleClass("animated fadeInUp");
-        // $('.row-materik .col-12').toggleClass("animated fadeInUp");
-        // $('.subtitle-materik').toggleClass("animated fadeInUp");
-    })
+    });
+
+    // add animated for articles
+    $('.article-wrp p').addClass('wow fadeInUp animated');
+    $('.article-wrp h2').addClass('wow fadeInUp animated');
+    $('.article-wrp h1').addClass('wow fadeInUp animated');
+    $('.article-wrp h3').addClass('wow fadeInUp animated');
+    $('.article-wrp h4').addClass('wow fadeInUp animated');
+    $('.article-wrp h5').addClass('wow fadeInUp animated');
+    $('.article-wrp h6').addClass('wow fadeInUp animated');
+    $('.article-wrp ol li').addClass('wow fadeInUp animated');
+    $('.article-wrp ul li').addClass('wow fadeInUp animated');
+    $('.article-about p').addClass('wow fadeInUp animated');
+    $('.article-about h1').addClass('wow fadeInUp animated');
+    $('.article-about h2').addClass('wow fadeInUp animated');
+    $('.article-about h3').addClass('wow fadeInUp animated');
+    $('.article-about h4').addClass('wow fadeInUp animated');
+    $('.article-about h5').addClass('wow fadeInUp animated');
+    $('.article-about h6').addClass('wow fadeInUp animated');
+    $('.article-about ol li').addClass('wow fadeInUp animated');
+    $('.article-about ul li').addClass('wow fadeInUp animated');
+
+    // animation
+    new WOW().init();
+
 
 
     // soft scroll
@@ -191,7 +210,7 @@ $(document).ready(function () {
     });
 
     // masked
-    $('.mask-phone').mask('+7 (999) 99-99-99');
+    $('.mask-phone').mask('+38 (999) 999-99-99');
 
     var flag = 1;
     $('.filter-btn').click(function () {
@@ -207,32 +226,32 @@ $(document).ready(function () {
     });
 
 
-
-
-
-
-    // form checked
-    $('.checkbox-check').change(function() {
-       if(this.checked) {
-           $(this).closest('form').find('.btn-4-checkbox').removeClass('btn-4-checkbox-disabled');
-       }
-       else {
-           $(this).closest('form').find('.btn-4-checkbox').addClass('btn-4-checkbox-disabled');
-       }
-   });
-
-
-
     // POP-UPS
     // open reminder pop-up
-    var $openReminderBTN = $('.open-reminder-btn');
+    var $openMessageBTN = $('.open-message-btn');
 
-    $openReminderBTN.click(function () {
+    $openMessageBTN.click(function () {
         $overlayPopUpWRP.addClass('active');
         $('body, html').addClass('active');
         $popUpGeneralBlock.removeClass('active');
-        $('#reminder').addClass('active');
+        $('#message').addClass('active');
     });
+
+    // open success send message pop-up
+    function successSend () {
+        $overlayPopUpWRP.addClass('active');
+        $('body, html').addClass('active');
+        $popUpGeneralBlock.removeClass('active');
+        $('#thnxMessage').addClass('active');
+    };
+
+    // open success subscribe pop-up
+    function successSubscribe () {
+        $overlayPopUpWRP.addClass('active');
+        $('body, html').addClass('active');
+        $popUpGeneralBlock.removeClass('active');
+        $('#thnxSubscribe').addClass('active');
+    };
 
     // close pop-up
     $overlay.click(function () {

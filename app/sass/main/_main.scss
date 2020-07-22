@@ -1,5 +1,4 @@
 main {
-
     & > .container {
         position: relative;
         min-height: 100vh;
@@ -22,6 +21,10 @@ main {
             background-color: rgba(0, 0, 0, 0.07);
         }
     }
+}
+.gif-img {
+    width: 190px;
+    float: right;
 }
 .main-screen {
     position: relative;
